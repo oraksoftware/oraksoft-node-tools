@@ -1,0 +1,46 @@
+{
+  "name": "oraksoft-node-tools",
+  "version": "0.0.2",
+  "description": "CLI araçları koleksiyonu - fi-copy-deps, fi-deploy-ftp, fi-deploy-zip ve fi-env-change komutları",
+  "main": "lib/index.js",
+  "type": "module",
+  "bin": {
+    "fi-copy-deps": "./bin/fi-copy-deps.js",
+    "fi-deploy-ftp": "./bin/fi-deploy-ftp.js", 
+    "fi-deploy-zip": "./bin/fi-deploy-zip.js",
+    "fi-env-change": "./bin/fi-env-change.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run build",
+    "build": "echo \"Build completed\""
+  },
+  "keywords": [
+    "cli",
+    "deploy",
+    "ftp",
+    "zip",
+    "copy-deps",
+    "env-change",
+    "oraksoft",
+    "development-tools"
+  ],
+  "author": "Oraksoft",
+  "license": "MIT",
+  "dependencies": {
+    "basic-ftp": "^5.0.5",
+    "tar": "^7.4.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engtuncay/oraksoft-node-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/engtuncay/oraksoft-node-tools/issues"
+  },
+  "homepage": "https://github.com/engtuncay/oraksoft-node-tools#readme"
+}

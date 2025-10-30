@@ -1,0 +1,6 @@
+# npm publish'e dahil edilecek dosyalar
+bin/
+lib/
+package.json
+README.md
+LICENSE
