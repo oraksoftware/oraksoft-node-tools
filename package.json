@@ -37,10 +37,10 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/engtuncay/oraksoft-node-tools.git"
+    "url": "git+https://github.com/oraksoftware/oraksoft-node-tools.git"
   },
   "bugs": {
-    "url": "https://github.com/engtuncay/oraksoft-node-tools/issues"
+    "url": "https://github.com/oraksoftware/oraksoft-node-tools/issues"
   },
-  "homepage": "https://github.com/engtuncay/oraksoft-node-tools#readme"
+  "homepage": "https://github.com/oraksoftware/oraksoft-node-tools#readme"
 }

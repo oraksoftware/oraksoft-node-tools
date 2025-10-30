@@ -137,4 +137,4 @@ MIT
 
 ## Sorun Bildirimi
 
-Sorunlarınızı [GitHub Issues](https://github.com/oraksoft/oraksoft-node-tools/issues) sayfasından bildirebilirsiniz.
+Sorunlarınızı [GitHub Issues](https://github.com/oraksoftware/oraksoft-node-tools/issues) sayfasından bildirebilirsiniz.
