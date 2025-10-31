@@ -2,6 +2,26 @@
 
 Node.js projeleriniz için kullanışlı CLI araçları koleksiyonu.
 
+- [Oraksoft Node Tools](#oraksoft-node-tools)
+  - [Kurulum](#kurulum)
+    - [Global kurulum (önerilen)](#global-kurulum-önerilen)
+    - [Proje bazında kurulum](#proje-bazında-kurulum)
+  - [Konfigürasyon](#konfigürasyon)
+  - [Komutlar](#komutlar)
+    - [orak-copy-deps](#orak-copy-deps)
+    - [orak-deploy-ftp](#orak-deploy-ftp)
+    - [orak-deploy-zip](#orak-deploy-zip)
+    - [orak-env-change](#orak-env-change)
+  - [Kullanım Örnekleri](#kullanım-örnekleri)
+    - [1. Bağımlılık Kopyalama](#1-bağımlılık-kopyalama)
+    - [2. Deployment İşlemi](#2-deployment-i̇şlemi)
+    - [3. Ortam Değiştirme](#3-ortam-değiştirme)
+  - [Gereksinimler](#gereksinimler)
+  - [Lisans](#lisans)
+  - [Katkıda Bulunma](#katkıda-bulunma)
+  - [Sorun Bildirimi](#sorun-bildirimi)
+
+
 ## Kurulum
 
 ### Global kurulum (önerilen)
@@ -14,16 +34,39 @@ pnpm install -g oraksoft-node-tools
 pnpm install oraksoft-node-tools --save-dev
 ```
 
+## Konfigürasyon
+
+Bu araçlar `orak-config.json` dosyasını kullanarak konfigüre edilir. Bu dosyayı proje kök dizininizde oluşturun:
+
+```json
+{
+  "copyDepsModulesToCopy": [
+    {
+      "name": "module-name",
+      "file": "dist/module.js"
+    }
+  ],
+  "copyDepsLibFolder": "lib",
+  "copyDepsLibFolderEmpty": true,
+  "fiDeployZipContent": [
+    "src/",
+    "public/",
+    "package.json"
+  ],
+  "fiEnvChangeStatus": "dev"
+}
+```
+
 ## Komutlar
 
-### fi-copy-deps
+### orak-copy-deps
 Node.js bağımlılıklarınızı belirtilen klasöre kopyalar.
 
 ```bash
-fi-copy-deps
+orak-copy-deps
 ```
 
-**Gerekli package.json ayarları:**
+**Gerekli orak-config.json ayarları:**
 ```json
 {
   "copyDepsModulesToCopy": [
@@ -37,33 +80,36 @@ fi-copy-deps
 }
 ```
 
-### fi-deploy-ftp
+### orak-deploy-ftp
 Dist klasöründeki dosyaları FTP sunucusuna yükler.
 
 ```bash
-fi-deploy-ftp
+orak-deploy-ftp
 ```
 
-**Gerekli .env.oraksoft ayarları:**
-```json
-{
-  "ftp_host": "ftp.example.com",
-  "ftp_user": "username",
-  "ftp_password": "password",
-  "ftp_secure": false,
-  "localFilePath": "deployphp25.tar.gz",
-  "remoteFilePath": "/path/to/remote/file.tar.gz"
-}
+**Gerekli .env dosyası:**
+```env
+ftp_host=ftp.example.com
+ftp_user=username
+ftp_password=password
+ftp_secure=false
+local_file=deployphp25.tar.gz
+remote_file=/path/to/remote/file.tar.gz
 ```
 
-### fi-deploy-zip
+**❗ Güvenlik Notları:**
+- `.env` dosyası zaten .gitignore'da bulunuyor
+- Web sunucunuzda `.env` dosyalarına erişimi engelleyin (.htaccess)
+- Dosya izinlerini kısıtlayın: `chmod 600 .env`
+
+### orak-deploy-zip
 Belirtilen dosya ve klasörleri tar.gz formatında arşivler.
 
 ```bash
-fi-deploy-zip
+orak-deploy-zip
 ```
 
-**Gerekli package.json ayarları:**
+**Gerekli orak-config.json ayarları:**
 ```json
 {
   "fiDeployZipContent": [
@@ -74,48 +120,49 @@ fi-deploy-zip
 }
 ```
 
-### fi-env-change
+### orak-env-change
 Ortam dosyalarını (.env) değiştirir.
 
 ```bash
-fi-env-change dev
+orak-env-change dev
 # veya
-fi-env-change production
+orak-env-change production
 ```
 
-**Opsiyonel package.json ayarları:**
+**Opsiyonel orak-config.json ayarları:**
 ```json
 {
   "fiEnvChangeStatus": "dev"
 }
 ```
 
-Bu durumda parametre vermeden `fi-env-change` komutunu çalıştırabilirsiniz.
+Bu durumda parametre vermeden `orak-env-change` komutunu çalıştırabilirsiniz.
 
 ## Kullanım Örnekleri
 
 ### 1. Bağımlılık Kopyalama
 ```bash
-# package.json'da tanımlanan modülleri kopyala
-fi-copy-deps
+# orak-config.json'da tanımlanan modülleri kopyala
+orak-copy-deps
 ```
 
 ### 2. Deployment İşlemi
 ```bash
+# .env dosyası oluşturun ve FTP bilgilerinizi ekleyin
 # Önce arşiv oluştur
-fi-deploy-zip
+orak-deploy-zip
 
 # Sonra FTP'ye yükle
-fi-deploy-ftp
+orak-deploy-ftp
 ```
 
 ### 3. Ortam Değiştirme
 ```bash
 # Development ortamına geç
-fi-env-change dev
+orak-env-change dev
 
 # Production ortamına geç
-fi-env-change prod
+orak-env-change prod
 ```
 
 ## Gereksinimler

@@ -24,6 +24,8 @@ node_modules/
 .env
 .env.test
 .env.oraksoft
+.env.*
+!.env.example
 
 # IDE
 .vscode/

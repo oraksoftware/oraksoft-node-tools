@@ -1,0 +1,10 @@
+# .env dosyalarına erişimi engelle
+<Files ".env*">
+    Require all denied
+</Files>
+
+# Alternatif yöntem
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

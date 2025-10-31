@@ -1,14 +1,14 @@
 {
   "name": "oraksoft-node-tools",
-  "version": "0.0.2",
-  "description": "CLI araçları koleksiyonu - fi-copy-deps, fi-deploy-ftp, fi-deploy-zip ve fi-env-change komutları",
+  "version": "0.0.3",
+  "description": "CLI araçları koleksiyonu - orak-copy-deps, orak-deploy-ftp, orak-deploy-zip ve orak-env-change komutları",
   "main": "lib/index.js",
   "type": "module",
   "bin": {
-    "fi-copy-deps": "./bin/fi-copy-deps.js",
-    "fi-deploy-ftp": "./bin/fi-deploy-ftp.js", 
-    "fi-deploy-zip": "./bin/fi-deploy-zip.js",
-    "fi-env-change": "./bin/fi-env-change.js"
+    "orak-copy-deps": "./bin/orak-copy-deps.js",
+    "orak-deploy-ftp": "./bin/orak-deploy-ftp.js", 
+    "orak-deploy-zip": "./bin/orak-deploy-zip.js",
+    "orak-env-change": "./bin/orak-env-change.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

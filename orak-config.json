@@ -1,0 +1,16 @@
+{
+  "copyDepsModulesToCopy": [
+    {
+      "name": "module-name",
+      "file": "dist/module.js"
+    }
+  ],
+  "copyDepsLibFolder": "lib",
+  "copyDepsLibFolderEmpty": true,
+  "fiDeployZipContent": [
+    "src/",
+    "public/",
+    "package.json"
+  ],
+  "fiEnvChangeStatus": "dev"
+}
