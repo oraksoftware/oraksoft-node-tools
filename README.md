@@ -88,13 +88,14 @@ orak-deploy-ftp
 ```
 
 **Gerekli .env dosyası:**
+
 ```env
-ftp_host=ftp.example.com
-ftp_user=username
-ftp_password=password
-ftp_secure=false
-local_file=deployphp25.tar.gz
-remote_file=/path/to/remote/file.tar.gz
+osf_ftp_host=ftp.example.com
+osf_ftp_user=username
+osf_ftp_password=password
+osf_ftp_secure=false
+osf_local_file=deployphp25.tar.gz
+osf_remote_file=/path/to/remote/file.tar.gz
 ```
 
 **❗ Güvenlik Notları:**
