@@ -12,8 +12,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "npm run build",
-    "build": "echo \"Build completed\""
+    "prepublishOnly": "pnpm run build",
+    "build": "echo \"Build completed\"",
+    "publish" : "pnpm publish --access public"
+
   },
   "keywords": [
     "cli",
