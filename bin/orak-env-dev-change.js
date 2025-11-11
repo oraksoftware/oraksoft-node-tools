@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { envChange } from '../lib/env-change.js';
+import { envDevChange } from '../lib/env-dev-change.js';
 
-envChange();
+envDevChange();
