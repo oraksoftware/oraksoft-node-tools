@@ -96,10 +96,11 @@ osf_ftp_user=username
 osf_ftp_password=password
 osf_ftp_secure=false
 osf_local_file=orak-deploy-zip.tar.gz
-osf_remote_file=/path/to/remote/file.tar.gz
+osf_remote_path=/public_html
 ```
 
 - `osf_local_file` belirtilmezse, `orak-config.json`'daki `fiDeployZipFile` değeri kullanılır
+- `osf_remote_path` uzak sunucudaki hedef klasör yolunu belirtir, dosya adı otomatik olarak `osf_local_file`'dan alınır
 
 **❗ Güvenlik Notları:**
 - `.env` dosyası zaten .gitignore'da bulunuyor

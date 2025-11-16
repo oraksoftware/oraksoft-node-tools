@@ -7,7 +7,6 @@
   ],
   "copyDepsLibFolder": "lib",
   "copyDepsLibFolderEmpty": true,
-  "fiDeployZipFile": "orak-deploy-zip",
   "fiDeployZipContent": [
     "src/",
     "public/",
