@@ -48,6 +48,7 @@ Bu araçlar `orak-config.json` dosyasını kullanarak konfigüre edilir. Bu dosy
   ],
   "copyDepsLibFolder": "lib",
   "copyDepsLibFolderEmpty": true,
+  "fiDeployZipFile": "orak-deploy-zip",
   "fiDeployZipContent": [
     "src/",
     "public/",
@@ -94,9 +95,11 @@ osf_ftp_host=ftp.example.com
 osf_ftp_user=username
 osf_ftp_password=password
 osf_ftp_secure=false
-osf_local_file=deployphp25.tar.gz
+osf_local_file=orak-deploy-zip.tar.gz
 osf_remote_file=/path/to/remote/file.tar.gz
 ```
+
+- `osf_local_file` belirtilmezse, `orak-config.json`'daki `fiDeployZipFile` değeri kullanılır
 
 **❗ Güvenlik Notları:**
 - `.env` dosyası zaten .gitignore'da bulunuyor
@@ -113,6 +116,7 @@ orak-deploy-zip
 **Gerekli orak-config.json ayarları:**
 ```json
 {
+  "fiDeployZipFile": "orak-deploy-zip",
   "fiDeployZipContent": [
     "src/",
     "public/",
@@ -120,6 +124,9 @@ orak-deploy-zip
   ]
 }
 ```
+
+- `fiDeployZipFile`: Oluşturulacak arşiv dosyasının adı (.tar.gz uzantısı otomatik eklenir)
+- `fiDeployZipContent`: Arşive dahil edilecek dosya ve klasörler
 
 ### orak-env-change
 Ortam dosyalarını (.env) değiştirir.
