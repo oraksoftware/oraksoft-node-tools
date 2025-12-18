@@ -1,8 +1,14 @@
-# npm publish'e dahil edilecek dosyalar
-bin/
-lib/
-package.json
-README.md
-LICENSE
-
+# npm publish sırasında dışlanacak dosyalar
+.git/
+.github/
 .vscode/
+node_modules/
+tests/
+dist/
+.env
+.env.*
+*.log
+.npmignore
+.gitignore
+.gitattributes
+USAGE_EXAMPLES.md

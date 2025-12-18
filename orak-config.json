@@ -12,5 +12,8 @@
     "public/",
     "package.json"
   ],
-  "fiEnvChangeStatus": "dev"
+  "zip-content": [
+    "bin",
+    "lib"
+  ]
 }
