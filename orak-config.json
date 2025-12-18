@@ -11,7 +11,7 @@
     "src/",
     "public/",
     "package.json"
-  ],
+  ],  
   "zip-content": [
     "bin",
     "lib"

@@ -30,6 +30,7 @@ pnpm install -g oraksoft-node-tools
 ```
 
 ### Proje bazında kurulum
+
 ```bash
 pnpm install oraksoft-node-tools --save-dev
 ```
@@ -61,6 +62,7 @@ Bu araçlar `orak-config.json` dosyasını kullanarak konfigüre edilir. Bu dosy
 ## Komutlar
 
 ### orak-copy-deps
+
 Node.js bağımlılıklarınızı belirtilen klasöre kopyalar.
 
 ```bash
@@ -68,6 +70,7 @@ orak-copy-deps
 ```
 
 **Gerekli orak-config.json ayarları:**
+
 ```json
 {
   "copyDepsModulesToCopy": [
@@ -79,9 +82,11 @@ orak-copy-deps
   "copyDepsLibFolder": "lib",
   "copyDepsLibFolderEmpty": true
 }
+
 ```
 
 ### orak-deploy-ftp
+
 Dist klasöründeki dosyaları FTP sunucusuna yükler.
 
 ```bash
