@@ -6,7 +6,7 @@
   "type": "module",
   "bin": {
     "orak-copy-deps": "./bin/orak-copy-deps.js",
-    "orak-deploy-ftp": "./bin/orak-deploy-ftp.js", 
+    "orak-deploy-ftp": "./bin/orak-deploy-ftp.js",
     "orak-deploy-zip": "./bin/orak-deploy-zip.js",
     "orak-env-change": "./bin/orak-env-change.js",
     "orak-env-dev-change": "./bin/orak-env-dev-change.js"
@@ -15,8 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "pnpm run build",
     "build": "echo \"Build completed\"",
-    "pn-publish" : "pnpm publish --access public"
-
+    "pn-publish": "pnpm publish --access public"
   },
   "keywords": [
     "cli",
@@ -32,6 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "basic-ftp": "^5.0.5",
+    "minimist": "^1.2.8",
     "tar": "^7.4.3"
   },
   "engines": {
