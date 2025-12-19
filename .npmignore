@@ -12,3 +12,4 @@ dist/
 .gitignore
 .gitattributes
 USAGE_EXAMPLES.md
+orak-config.json

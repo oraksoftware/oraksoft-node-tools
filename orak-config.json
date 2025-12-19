@@ -7,13 +7,14 @@
   ],
   "copyDepsLibFolder": "lib",
   "copyDepsLibFolderEmpty": true,
-  "fiDeployZipContent": [
-    "src/",
-    "public/",
-    "package.json"
-  ],  
-  "zip-content": [
+  "zip_package": [
+    "lib/",
+    "bin/"
+  ],
+  "zip_package_out_file": ".orak-dist/deploy1.tar.gz",
+  "zip_content": [
     "bin",
     "lib"
-  ]
+  ],
+  "zip_content_out_file": ".orak-dist/deploy.tar.gz"
 }
