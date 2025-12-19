@@ -10,11 +10,12 @@ Node.js projeleriniz için kullanışlı CLI araçları koleksiyonu.
   - [Komutlar](#komutlar)
     - [orak-copy-deps](#orak-copy-deps)
     - [orak-deploy-ftp](#orak-deploy-ftp)
-    - [orak-deploy-zip](#orak-deploy-zip)
+    - [orak-zip-content](#orak-zip-content)
+    - [orak-zip-package](#orak-zip-package)
     - [orak-env-change](#orak-env-change)
   - [Kullanım Örnekleri](#kullanım-örnekleri)
     - [1. Bağımlılık Kopyalama](#1-bağımlılık-kopyalama)
-    - [2. Deployment İşlemi](#2-deployment-i̇şlemi)
+    - [2. Arşiv Oluşturma ve FTP Yükleme](#2-arşiv-oluşturma-ve-ftp-yükleme)
     - [3. Ortam Değiştirme](#3-ortam-değiştirme)
   - [Gereksinimler](#gereksinimler)
   - [Lisans](#lisans)
@@ -49,13 +50,10 @@ Bu araçlar `orak-config.json` dosyasını kullanarak konfigüre edilir. Bu dosy
   ],
   "copyDepsLibFolder": "lib",
   "copyDepsLibFolderEmpty": true,
-  "fiDeployZipFile": "orak-deploy-zip",
-  "fiDeployZipContent": [
-    "src/",
-    "public/",
-    "package.json"
-  ],
-  "fiEnvChangeStatus": "dev"
+  "zip_package": ["lib/", "bin/"],
+  "zip_package_out_file": ".orak-dist/deploy1.tar.gz",
+  "zip_content": ["bin", "lib"],
+  "zip_content_out_file": ".orak-dist/deploy.tar.gz"
 }
 ```
 
@@ -87,7 +85,7 @@ orak-copy-deps
 
 ### orak-deploy-ftp
 
-Dist klasöründeki dosyaları FTP sunucusuna yükler.
+Belirtilen dosyayı FTP sunucusuna yükler.
 
 ```bash
 orak-deploy-ftp
@@ -100,39 +98,62 @@ osf_ftp_host=ftp.example.com
 osf_ftp_user=username
 osf_ftp_password=password
 osf_ftp_secure=false
-osf_local_file=orak-deploy-zip.tar.gz
+osf_local_file=deploy.tar.gz
 osf_remote_path=/public_html
 ```
 
-- `osf_local_file` belirtilmezse, `orak-config.json`'daki `fiDeployZipFile` değeri kullanılır
-- `osf_remote_path` uzak sunucudaki hedef klasör yolunu belirtir, dosya adı otomatik olarak `osf_local_file`'dan alınır
+- `osf_ftp_host`: FTP sunucusunun adresi
+- `osf_ftp_user`: FTP kullanıcı adı
+- `osf_ftp_password`: FTP şifresi
+- `osf_ftp_secure`: `true` FTPS kullanır, `false` FTP kullanır (varsayılan: `false`)
+- `osf_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu
+- `osf_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
+- Dosya adı otomatik olarak `osf_local_file`'ın son bölümünden alınır
 
 **❗ Güvenlik Notları:**
 - `.env` dosyası zaten .gitignore'da bulunuyor
 - Web sunucunuzda `.env` dosyalarına erişimi engelleyin (.htaccess)
 - Dosya izinlerini kısıtlayın: `chmod 600 .env`
 
-### orak-deploy-zip
+### orak-zip-content
+
 Belirtilen dosya ve klasörleri tar.gz formatında arşivler.
 
 ```bash
-orak-deploy-zip
+orak-zip-content
 ```
 
 **Gerekli orak-config.json ayarları:**
+
 ```json
 {
-  "fiDeployZipFile": "orak-deploy-zip",
-  "fiDeployZipContent": [
-    "src/",
-    "public/",
-    "package.json"
-  ]
+  "zip_content": ["bin", "lib"],
+  "zip_content_out_file": ".orak-dist/deploy.tar.gz"
 }
 ```
 
-- `fiDeployZipFile`: Oluşturulacak arşiv dosyasının adı (.tar.gz uzantısı otomatik eklenir)
-- `fiDeployZipContent`: Arşive dahil edilecek dosya ve klasörler
+- `zip_content`: Arşive dahil edilecek dosya ve klasörler
+- `zip_content_out_file`: Oluşturulacak arşiv dosyasının tam yolu
+
+### orak-zip-package
+
+Belirtilen dosya ve klasörleri tar.gz formatında paket arşivi olarak oluşturur.
+
+```bash
+orak-zip-package
+```
+
+**Gerekli orak-config.json ayarları:**
+
+```json
+{
+  "zip_package": ["lib/", "bin/"],
+  "zip_package_out_file": ".orak-dist/deploy1.tar.gz"
+}
+```
+
+- `zip_package`: Paket arşivine dahil edilecek dosya ve klasörler
+- `zip_package_out_file`: Oluşturulacak paket arşiv dosyasının tam yolu
 
 ### orak-env-change
 Ortam dosyalarını (.env) değiştirir.
@@ -160,14 +181,18 @@ Bu durumda parametre vermeden `orak-env-change` komutunu çalıştırabilirsiniz
 orak-copy-deps
 ```
 
-### 2. Deployment İşlemi
+### 2. Arşiv Oluşturma ve FTP Yükleme
 ```bash
 # .env dosyası oluşturun ve FTP bilgilerinizi ekleyin
-# Önce arşiv oluştur
-orak-deploy-zip
 
-# Sonra FTP'ye yükle
+# İçerik arşivi oluştur
+orak-zip-content
+
+# FTP'ye yükle
 orak-deploy-ftp
+
+# Alternatif olarak paket arşivi oluştur
+orak-zip-package
 ```
 
 ### 3. Ortam Değiştirme
