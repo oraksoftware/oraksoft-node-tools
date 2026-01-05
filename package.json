@@ -1,6 +1,6 @@
 {
   "name": "oraksoft-node-tools",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "description": "CLI araçları koleksiyonu - orak-copy-deps, orak-deploy-ftp, orak-deploy-zip, orak-env-change ve orak-env-dev-change komutları",
   "main": "lib/index.js",
   "type": "module",
@@ -8,6 +8,7 @@
     "orak-copy-deps": "./bin/orak-copy-deps.js",
     "orak-deploy-ftp": "./bin/orak-deploy-ftp.js",
     "orak-env-change": "./bin/orak-env-change.js",
+    "orak-env-dev-change": "./bin/orak-env-dev-change.js",
     "orak-zip-content": "./bin/orak-zip-content.js",
     "orak-zip-package": "./bin/orak-zip-package.js"
   },
@@ -17,6 +18,13 @@
     "build": "echo \"Build completed\"",
     "pn-publish": "pnpm publish --access public",
     "pn-global-update": "pnpm link --global"
+  },
+  "scripts_comment":{
+    "test": "Test komutu henüz tanımlanmadı.",
+    "prepublishOnly": "Yayınlamadan önce çalıştırılacak komut.",
+    "build": "Proje derleme komutu.",
+    "pn-publish": "Paketin genel erişimle yayınlanması için komut.",
+    "pn-global-update": "Paketin global olarak güncellenmesi için komut."
   },
   "keywords": [
     "cli",
