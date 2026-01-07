@@ -99,7 +99,7 @@ osf_ftp_user=username
 osf_ftp_password=password
 osf_ftp_secure=false
 osf_local_file=deploy.tar.gz
-osf_remote_path=/public_html
+osf_remote_path=public_html
 ```
 
 - `osf_ftp_host`: FTP sunucusunun adresi
