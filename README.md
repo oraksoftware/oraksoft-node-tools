@@ -91,7 +91,7 @@ Belirtilen dosyayı FTP sunucusuna yükler.
 orak-deploy-ftp
 ```
 
-**Gerekli .env dosyası:**
+**Gerekli .env.orakconfig dosyası:**
 
 ```env
 osf_ftp_host=ftp.example.com
@@ -111,9 +111,9 @@ osf_remote_path=/public_html
 - Dosya adı otomatik olarak `osf_local_file`'ın son bölümünden alınır
 
 **❗ Güvenlik Notları:**
-- `.env` dosyası zaten .gitignore'da bulunuyor
-- Web sunucunuzda `.env` dosyalarına erişimi engelleyin (.htaccess)
-- Dosya izinlerini kısıtlayın: `chmod 600 .env`
+- `.env.orakconfig` dosyası zaten .gitignore'da bulunuyor
+- Web sunucunuzda `.env.orakconfig` dosyalarına erişimi engelleyin (.htaccess)
+- Dosya izinlerini kısıtlayın: `chmod 600 .env.orakconfig`
 
 ### orak-zip-content
 
@@ -183,7 +183,7 @@ orak-copy-deps
 
 ### 2. Arşiv Oluşturma ve FTP Yükleme
 ```bash
-# .env dosyası oluşturun ve FTP bilgilerinizi ekleyin
+# .env.orakconfig dosyası oluşturun ve FTP bilgilerinizi ekleyin
 
 # İçerik arşivi oluştur
 orak-zip-content

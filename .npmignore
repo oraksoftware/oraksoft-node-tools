@@ -10,6 +10,7 @@ dist/
 .env.prod
 .env.production
 .env.development
+.env.orakconfig
 *.log
 .npmignore
 .gitignore
