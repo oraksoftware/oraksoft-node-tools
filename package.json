@@ -1,6 +1,6 @@
 {
   "name": "oraksoft-node-tools",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "description": "CLI araçları koleksiyonu - orak-copy-deps, orak-deploy-ftp, orak-deploy-zip, orak-env-change ve orak-env-dev-change komutları",
   "main": "lib/index.js",
   "type": "module",
@@ -17,7 +17,8 @@
     "prepublishOnly": "pnpm run build",
     "build": "echo \"Build completed\"",
     "pn-publish": "pnpm publish --access public",
-    "pn-global-update": "pnpm link --global"
+    "pn-global-update": "pnpm link --global",
+    "orak-deploy-test": "orak-deploy-ftp"
   },
   "scripts_comment":{
     "test": "Test komutu henüz tanımlanmadı.",
