@@ -98,17 +98,17 @@ osf_ftp_host=ftp.example.com
 osf_ftp_user=username
 osf_ftp_password=password
 osf_ftp_secure=false
-osf_local_file=deploy.tar.gz
-osf_remote_path=public_html
+osf_ftp_local_file=deploy.tar.gz
+osf_ftp_remote_path=public_html
 ```
 
 - `osf_ftp_host`: FTP sunucusunun adresi
 - `osf_ftp_user`: FTP kullanıcı adı
 - `osf_ftp_password`: FTP şifresi
 - `osf_ftp_secure`: `true` FTPS kullanır, `false` FTP kullanır (varsayılan: `false`)
-- `osf_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu
-- `osf_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
-- Dosya adı otomatik olarak `osf_local_file`'ın son bölümünden alınır
+- `osf_ftp_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu
+- `osf_ftp_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
+- Dosya adı otomatik olarak `osf_ftp_local_file`'ın son bölümünden alınır
 
 **❗ Güvenlik Notları:**
 - `.env.orakconfig` dosyası zaten .gitignore'da bulunuyor

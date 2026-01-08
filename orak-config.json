@@ -12,9 +12,12 @@
     "bin/"
   ],
   "zip_package_out_file": ".orak-dist/deploy1.tar.gz",
+  "osf_ftp_local_file": ".orak-dist/test.txt",
+  "osf_ftp_remote_path": "temp",
   "zip_content": [
     "bin",
     "lib"
   ],
   "zip_content_out_file": ".orak-dist/deploy.tar.gz"
+  
 }
