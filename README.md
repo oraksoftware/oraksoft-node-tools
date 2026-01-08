@@ -115,6 +115,8 @@ osf_ftp_remote_path=public_html
 - Web sunucunuzda `.env.orakconfig` dosyalarına erişimi engelleyin (.htaccess)
 - Dosya izinlerini kısıtlayın: `chmod 600 .env.orakconfig`
 
+📝 `osf_ftp_host, osf_ftp_local_file ve osf_ftp_remote_path` değerleri `orak-config.json` içinde de tanımlanabilir. `.env.orakconfig`'de yoksa `orak-config.json`'a bakar.
+
 ### orak-zip-content
 
 Belirtilen dosya ve klasörleri tar.gz formatında arşivler.
