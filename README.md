@@ -88,7 +88,7 @@ orak-copy-deps
 Belirtilen dosyayı FTP sunucusuna yükler.
 
 ```bash
-orak-deploy-ftp
+orak-deploy-ftp [--profile <name>] [--v]
 ```
 
 **Gerekli .env.orakconfig dosyası:**
@@ -106,23 +106,29 @@ osf_ftp_remote_path=public_html
 - `osf_ftp_user`: FTP kullanıcı adı
 - `osf_ftp_password`: FTP şifresi
 - `osf_ftp_secure`: `true` FTPS kullanır, `false` FTP kullanır (varsayılan: `false`)
-- `osf_ftp_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu
+- `osf_ftp_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu (**uzantılı** olarak yazın, ör: `deploy.tar.gz`)
 - `osf_ftp_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
 - Dosya adı otomatik olarak `osf_ftp_local_file`'ın son bölümünden alınır
+
+Ek opsiyonlar:
+
+- `--profile <name>`: Belirtilen profil için önce `osf_ftp_local_file_<name>` (veya `orak-config.json` içinde aynı anahtar) aranır. Örnek: `--profile test` -> `osf_ftp_local_file_test`. Konsolda: `test profil uygulandı.`
+
+- `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler. Noktalar `_` ile değiştirilecek (örn. `1.2.3` -> `1_2_3`) ve çok parçalı uzantılar korunacaktır (`deploy.tar.gz` -> `deploy-1_2_3.tar.gz`). Konsolda: `📦 Versiyon eklendi: 1_2_3` ve `📄 Güncel dosya adı: ...`
 
 **❗ Güvenlik Notları:**
 - `.env.orakconfig` dosyası zaten .gitignore'da bulunuyor
 - Web sunucunuzda `.env.orakconfig` dosyalarına erişimi engelleyin (.htaccess)
 - Dosya izinlerini kısıtlayın: `chmod 600 .env.orakconfig`
 
-📝 `osf_ftp_host, osf_ftp_local_file ve osf_ftp_remote_path` değerleri `orak-config.json` içinde de tanımlanabilir. `.env.orakconfig`'de yoksa `orak-config.json`'a bakar.
+📝 `osf_ftp_host, osf_ftp_local_file` ve `osf_ftp_remote_path` değerleri `orak-config.json` içinde de tanımlanabilir. `.env.orakconfig`'de yoksa `orak-config.json`'a bakar. Profil kullanılıyorsa `osf_ftp_local_file_<profile>` anahtarı da desteklenir.
 
 ### orak-zip-content
 
 Belirtilen dosya ve klasörleri tar.gz formatında arşivler.
 
 ```bash
-orak-zip-content
+orak-zip-content [--profile <name>] [--v]
 ```
 
 **Gerekli orak-config.json ayarları:**
@@ -130,19 +136,25 @@ orak-zip-content
 ```json
 {
   "zip_content": ["bin", "lib"],
-  "zip_content_out_file": ".orak-dist/deploy.tar.gz"
+  "zip_content_out_file": ".orak-dist/deploy"
 }
 ```
 
 - `zip_content`: Arşive dahil edilecek dosya ve klasörler
-- `zip_content_out_file`: Oluşturulacak arşiv dosyasının tam yolu
+- `zip_content_out_file`: Oluşturulacak arşiv dosyasının tam yolu (**uzantısız**; `.tar.gz` kod tarafından eklenir)
+
+Ek opsiyonlar:
+
+- `--profile <name>`: Profil adı verildiğinde `zip_content_out_file_<name>` anahtarı tercih edilir (örn: `zip_content_out_file_test`). Konsolda: `test profil uygulandı.`
+
+- `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler; noktalar `_` ile değişir ve dosya uzantısı korunur (örn. `.orak-dist/deploy` -> `.orak-dist/deploy-1_2_3.tar.gz`). Konsolda: `📦 Versiyon eklendi: 1_2_3`
 
 ### orak-zip-package
 
 Belirtilen dosya ve klasörleri tar.gz formatında paket arşivi olarak oluşturur.
 
 ```bash
-orak-zip-package
+orak-zip-package [--profile <name>] [--v]
 ```
 
 **Gerekli orak-config.json ayarları:**
@@ -150,12 +162,18 @@ orak-zip-package
 ```json
 {
   "zip_package": ["lib/", "bin/"],
-  "zip_package_out_file": ".orak-dist/deploy1.tar.gz"
+  "zip_package_out_file": ".orak-dist/deploy1"
 }
 ```
 
 - `zip_package`: Paket arşivine dahil edilecek dosya ve klasörler
-- `zip_package_out_file`: Oluşturulacak paket arşiv dosyasının tam yolu
+- `zip_package_out_file`: Oluşturulacak paket arşiv dosyasının tam yolu (**uzantısız**; `.tar.gz` kod tarafından eklenir)
+
+Ek opsiyonlar:
+
+- `--profile <name>`: Profil adı verildiğinde `zip_package_out_file_<name>` anahtarı tercih edilir (örn: `zip_package_out_file_test`).
+
+- `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler; noktalar `_` ile değişir ve dosya uzantısı korunur (örn. `.orak-dist/deploy1` -> `.orak-dist/deploy1-1_2_3.tar.gz`).
 
 ### orak-env-change
 Ortam dosyalarını (.env) değiştirir.
