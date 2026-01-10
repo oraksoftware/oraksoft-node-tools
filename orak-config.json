@@ -16,6 +16,7 @@
   "osf_ftp_local_file": ".orak-dist/test.txt",
   "osf_ftp_local_file_test": ".orak-dist/deploy-test.tar.gz",
   "osf_ftp_remote_path": "temp",
+  "osf_ftp_remote_path_test": "temp",
   "zip_content": [
     "bin",
     "lib"
