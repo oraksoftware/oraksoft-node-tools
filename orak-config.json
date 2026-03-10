@@ -22,6 +22,16 @@
     "lib"
   ],
   "zip_content_out_file": ".orak-dist/deploy",
-  "zip_content_out_file_test": ".orak-dist/deploy-test"
-  
+  "zip_content_out_file_test": ".orak-dist/deploy-test",
+  "dff_remote_path": "",
+  "dff_list": [
+    {
+      "local": ".orak-dist/test1.txt",
+      "remote": "/fitest"
+    },
+    {
+      "local": ".orak-dist/test2.txt",
+      "remote": "/fitest"
+    }
+  ]
 }

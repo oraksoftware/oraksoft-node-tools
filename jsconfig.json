@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "checkJs": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "lib/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/build"
+  ]
+}

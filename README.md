@@ -93,14 +93,22 @@ orak-deploy-ftp [--profile <name>] [--v]
 
 **Gerekli .env.orakconfig dosyası:**
 
-```env
+```bash
 osf_ftp_host=ftp.example.com
 osf_ftp_user=username
 osf_ftp_password=password
 osf_ftp_secure=false
+
+```
+
+**Gerekli orak-config.json dosyası:**
+
+```bash
 osf_ftp_local_file=deploy.tar.gz
 osf_ftp_remote_path=public_html
-```
+
+```  
+
 
 - `osf_ftp_host`: FTP sunucusunun adresi
 - `osf_ftp_user`: FTP kullanıcı adı
@@ -112,7 +120,7 @@ osf_ftp_remote_path=public_html
 
 Ek opsiyonlar:
 
-- `--profile <name>`: Belirtilen profil için önce `osf_ftp_local_file_<name>` (veya `orak-config.json` içinde aynı anahtar) aranır. Örnek: `--profile test` -> `osf_ftp_local_file_test`. Konsolda: `test profil uygulandı.`
+- `--profile <profil_name>`: Belirtilen profil için önce `osf_ftp_local_file_<profil_name>` (veya `orak-config.json` içinde aynı anahtar) aranır. Örnek: `--profile test` -> `osf_ftp_local_file_test`. Konsolda: `test profil uygulandı.`
 
 - `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler. Noktalar `_` ile değiştirilecek (örn. `1.2.3` -> `1_2_3`) ve çok parçalı uzantılar korunacaktır (`deploy.tar.gz` -> `deploy-1_2_3.tar.gz`). Konsolda: `📦 Versiyon eklendi: 1_2_3` ve `📄 Güncel dosya adı: ...`
 

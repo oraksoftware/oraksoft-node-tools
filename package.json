@@ -1,12 +1,13 @@
 {
   "name": "oraksoft-node-tools",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "CLI araçları koleksiyonu - orak-copy-deps, orak-deploy-ftp, orak-deploy-zip, orak-env-change ve orak-env-dev-change komutları",
   "main": "lib/index.js",
   "type": "module",
   "bin": {
     "orak-copy-deps": "./bin/orak-copy-deps.js",
     "orak-deploy-ftp": "./bin/orak-deploy-ftp.js",
+    "orak-deploy-ftp-files": "./bin/orak-deploy-ftp-files.js",
     "orak-env-change": "./bin/orak-env-change.js",
     "orak-env-dev-change": "./bin/orak-env-dev-change.js",
     "orak-zip-content": "./bin/orak-zip-content.js",
