@@ -1,11 +1,12 @@
 {
   "copyDepsModulesToCopy": [
     {
-      "name": "module-name",
-      "file": "dist/module.js"
+      "name": "minimist",
+      "file": "test/dash.js",
+      "destFolder": "abc"
     }
   ],
-  "copyDepsLibFolder": "lib",
+  "copyDepsLibFolder": "dist/lib",
   "copyDepsLibFolderEmpty": true,
   "zip_package": [
     "lib/",
