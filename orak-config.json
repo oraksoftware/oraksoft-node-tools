@@ -1,4 +1,10 @@
 {
+  "zip_package": [
+    "lib/",
+    "bin/"
+  ],
+  "zip_package_out_file": ".orak-dist/deploy",
+  "zip_package_out_file_test": ".orak-dist/deploy-test",
   "copyDepsModulesToCopy": [
     {
       "name": "minimist",
@@ -8,12 +14,6 @@
   ],
   "copyDepsLibFolder": "dist/lib",
   "copyDepsLibFolderEmpty": true,
-  "zip_package": [
-    "lib/",
-    "bin/"
-  ],
-  "zip_package_out_file": ".orak-dist/deploy",
-  "zip_package_out_file_test": ".orak-dist/deploy-test",
   "osf_ftp_local_file": ".orak-dist/test.txt",
   "osf_ftp_local_file_test": ".orak-dist/deploy-test.tar.gz",
   "osf_ftp_remote_path": "home/orakuser_test/",

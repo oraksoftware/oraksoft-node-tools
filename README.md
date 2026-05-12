@@ -134,10 +134,10 @@ Ek opsiyonlar:
 
 ### orak-zip-content
 
-Belirtilen dosya ve klasörleri tar.gz formatında arşivler.
+Belirtilen dosya ve klasörleri tar.gz veya ZIP formatında arşivler.
 
 ```bash
-orak-zip-content [--profile <name>] [--v]
+orak-zip-content [--profile <name>] [--v] [--zip]
 ```
 
 **Gerekli orak-config.json ayarları:**
@@ -150,7 +150,7 @@ orak-zip-content [--profile <name>] [--v]
 ```
 
 - `zip_content`: Arşive dahil edilecek dosya ve klasörler
-- `zip_content_out_file`: Oluşturulacak arşiv dosyasının tam yolu (**uzantısız**; `.tar.gz` kod tarafından eklenir)
+- `zip_content_out_file`: Oluşturulacak arşiv dosyasının tam yolu (**uzantısız**; `.tar.gz` veya `.zip` kod tarafından eklenir)
 
 Ek opsiyonlar:
 
@@ -158,12 +158,26 @@ Ek opsiyonlar:
 
 - `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler; noktalar `_` ile değişir ve dosya uzantısı korunur (örn. `.orak-dist/deploy` -> `.orak-dist/deploy-1_2_3.tar.gz`). Konsolda: `📦 Versiyon eklendi: 1_2_3`
 
+- `--zip, -z`: ZIP formatında arşiv oluşturur. Varsayılan format tar.gz'dir (örn: `.orak-dist/deploy` -> `.orak-dist/deploy-1_2_3.zip`).
+
+**Kullanım Örnekleri:**
+```bash
+# tar.gz formatında arşiv oluştur
+orak-zip-content -v
+
+# ZIP formatında arşiv oluştur
+orak-zip-content -z -v
+
+# Profil ile ZIP formatında
+orak-zip-content --zip --profile production -v
+```
+
 ### orak-zip-package
 
-Belirtilen dosya ve klasörleri tar.gz formatında paket arşivi olarak oluşturur.
+Belirtilen dosya ve klasörleri tar.gz veya ZIP formatında paket arşivi olarak oluşturur.
 
 ```bash
-orak-zip-package [--profile <name>] [--v]
+orak-zip-package [--profile <name>] [--v] [--zip]
 ```
 
 **Gerekli orak-config.json ayarları:**
@@ -176,13 +190,27 @@ orak-zip-package [--profile <name>] [--v]
 ```
 
 - `zip_package`: Paket arşivine dahil edilecek dosya ve klasörler
-- `zip_package_out_file`: Oluşturulacak paket arşiv dosyasının tam yolu (**uzantısız**; `.tar.gz` kod tarafından eklenir)
+- `zip_package_out_file`: Oluşturulacak paket arşiv dosyasının tam yolu (**uzantısız**; `.tar.gz` veya `.zip` kod tarafından eklenir)
 
 Ek opsiyonlar:
 
 - `--profile <name>`: Profil adı verildiğinde `zip_package_out_file_<name>` anahtarı tercih edilir (örn: `zip_package_out_file_test`).
 
 - `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler; noktalar `_` ile değişir ve dosya uzantısı korunur (örn. `.orak-dist/deploy1` -> `.orak-dist/deploy1-1_2_3.tar.gz`).
+
+- `--zip, -z`: ZIP formatında paket arşivi oluşturur. Varsayılan format tar.gz'dir (örn: `.orak-dist/deploy1` -> `.orak-dist/deploy1-1_2_3.zip`).
+
+**Kullanım Örnekleri:**
+```bash
+# tar.gz formatında paket oluştur
+orak-zip-package -v
+
+# ZIP formatında paket oluştur
+orak-zip-package -z -v
+
+# Profil ile ZIP formatında
+orak-zip-package --zip --profile production -v
+```
 
 ### orak-env-change
 Ortam dosyalarını (.env) değiştirir.
