@@ -117,7 +117,7 @@ osf_ftp_remote_abs_path=https://entegre.oraksoft.tr/
 - `osf_ftp_secure`: `true` FTPS kullanır, `false` FTP kullanır (varsayılan: `false`)
 - `osf_ftp_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu (**uzantılı** olarak yazın, ör: `deploy.tar.gz`)
 - `osf_ftp_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
-- - `osf_ftp_remote_abs_path`: meta dosyasına konulacak url adresi, buraya dosya adı eklenir
+- - `osf_ftp_remote_url`: meta dosyasına konulacak url adresi, buraya dosya adı eklenir
 
 Not: Dosya adı otomatik olarak `osf_ftp_local_file`'ın son bölümünden alınır
 

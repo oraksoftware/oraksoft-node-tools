@@ -17,7 +17,7 @@
   "osf_ftp_local_file": ".orak-dist/deploy.tar.gz",
   "osf_ftp_local_file_test": ".orak-dist/deploy-test.tar.gz",
   "osf_ftp_remote_path": "home/orakuser_test/",
-  "osf_ftp_remote_abs_path": "https://entegre.oraksoft.tr/",
+  "osf_ftp_remote_url": "https://entegre.oraksoft.tr/",
   "osf_ftp_remote_path_test": "",
   "zip_content": [
     "bin",
