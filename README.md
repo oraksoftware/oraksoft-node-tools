@@ -116,7 +116,8 @@ osf_ftp_remote_path=public_html
 - `osf_ftp_secure`: `true` FTPS kullanır, `false` FTP kullanır (varsayılan: `false`)
 - `osf_ftp_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu (**uzantılı** olarak yazın, ör: `deploy.tar.gz`)
 - `osf_ftp_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
-- Dosya adı otomatik olarak `osf_ftp_local_file`'ın son bölümünden alınır
+
+Not: Dosya adı otomatik olarak `osf_ftp_local_file`'ın son bölümünden alınır
 
 Ek opsiyonlar:
 
@@ -129,7 +130,7 @@ Ek opsiyonlar:
 - Web sunucunuzda `.env.orakconfig` dosyalarına erişimi engelleyin (.htaccess)
 - Dosya izinlerini kısıtlayın: `chmod 600 .env.orakconfig`
 
-📝 `osf_ftp_host, osf_ftp_local_file` ve `osf_ftp_remote_path` değerleri `orak-config.json` içinde de tanımlanabilir. `.env.orakconfig`'de yoksa `orak-config.json`'a bakar. Profil kullanılıyorsa `osf_ftp_local_file_<profile>` anahtarı da desteklenir.
+📝 Profil kullanılıyorsa `osf_ftp_local_file_<profile>` anahtarı ile aranır.
 
 ### orak-zip-content
 
