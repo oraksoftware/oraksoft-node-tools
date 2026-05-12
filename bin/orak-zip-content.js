@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { deployZipContent } from '../lib/zip-content.js';
+import { makeZipContent } from '../lib/zip-content.js';
 
-deployZipContent();
+makeZipContent();
