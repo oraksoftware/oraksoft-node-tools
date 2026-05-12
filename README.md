@@ -106,6 +106,7 @@ osf_ftp_secure=false
 ```bash
 osf_ftp_local_file=deploy.tar.gz
 osf_ftp_remote_path=public_html
+osf_ftp_remote_abs_path=https://entegre.oraksoft.tr/
 
 ```  
 
@@ -116,6 +117,7 @@ osf_ftp_remote_path=public_html
 - `osf_ftp_secure`: `true` FTPS kullanır, `false` FTP kullanır (varsayılan: `false`)
 - `osf_ftp_local_file`: Yüklenmek istenen dosyanın proje köküne göre yolu (**uzantılı** olarak yazın, ör: `deploy.tar.gz`)
 - `osf_ftp_remote_path`: Uzak sunucudaki hedef klasör yolu (varsayılan: `/`)
+- - `osf_ftp_remote_abs_path`: meta dosyasına konulacak url adresi, buraya dosya adı eklenir
 
 Not: Dosya adı otomatik olarak `osf_ftp_local_file`'ın son bölümünden alınır
 
@@ -124,6 +126,8 @@ Ek opsiyonlar:
 - `--profile <profil_name>`: Belirtilen profil için önce `osf_ftp_local_file_<profil_name>` (veya `orak-config.json` içinde aynı anahtar) aranır. Örnek: `--profile test` -> `osf_ftp_local_file_test`. Konsolda: `test profil uygulandı.`
 
 - `--v`: Paket sürümünü (`package.json` içindeki `version`) dosya adına ekler. Noktalar `_` ile değiştirilecek (örn. `1.2.3` -> `1_2_3`) ve çok parçalı uzantılar korunacaktır (`deploy.tar.gz` -> `deploy-1_2_3.tar.gz`). Konsolda: `📦 Versiyon eklendi: 1_2_3` ve `📄 Güncel dosya adı: ...`
+
+- `--meta`: Meta bilgi json dosyasını üretir
 
 **❗ Güvenlik Notları:**
 - `.env.orakconfig` dosyası zaten .gitignore'da bulunuyor
