@@ -26,6 +26,7 @@ Node.js projeleriniz için kullanışlı CLI araçları koleksiyonu.
 ## Kurulum
 
 ### Global kurulum (önerilen)
+
 ```bash
 pnpm install -g oraksoft-node-tools
 ```

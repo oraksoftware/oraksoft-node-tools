@@ -18,7 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "pnpm run build",
     "build": "echo \"Build completed\"",
-    "pn-global-update": "pnpm link --global",
+    "pn-global-update": "pnpm add -g .",
     "pn-publish": "pnpm publish --access public",
     "orak-deploy-test": "orak-deploy-ftp"
   },
@@ -27,7 +27,7 @@
     "prepublishOnly": "Yayınlamadan önce çalıştırılacak komut.",
     "build": "Proje derleme komutu.",
     "pn-publish": "Paketin genel erişimle yayınlanması için komut.",
-    "pn-global-update": "Paketin global olarak güncellenmesi için komut."
+    "pn-global-update": "Paketin global olarak bin'lerinin eklenmesi için komut."
   },
   "keywords": [
     "cli",
